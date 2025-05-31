@@ -1,7 +1,7 @@
 name: continuous_integration
 on: 
-  push:
   workflow_dispatch:
+  push:
   
 
 jobs:
@@ -13,9 +13,15 @@ jobs:
     - name: setup
       uses: actions/checkout@v4
     
+    - name: python_setup
+      uses: actions/setup-python@v4
+      with: 
+        python_version: '3.9' 
+    
     - name: unit_testing
       run: |
         echo "Unit testing code."
+        pytest
     
     - name: quality_testing
       run: |
@@ -23,5 +29,5 @@ jobs:
     
     - name: deployment # basically, starts off the 'deployment' workflow.
       run: |
-        echo "Starts the 'Deployment workflow."
+        echo "Starts the 'Deployment' workflow."
        
