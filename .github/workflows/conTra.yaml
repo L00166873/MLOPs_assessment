@@ -18,24 +18,45 @@ jobs:
     - name: setup
       uses: actions/checkout@v4
     
+    - name: python_setup
+      uses: actions/python@v4
+      with:
+        python-version: '3.9'
+      
+    - name: installing_libraries
+      run: |
+        pip install -r requirements_folder/model.txt
+    
     #acquire/preprocess data
     - name: data_preparation 
       run: | 
-        echo "Get's data, and preprocesses it."
+        echo "The step that automates data acquisition and preprocessing(would use the .py file(s) that do that, if/when needed)."
 
     #feature extract
     - name: feature_extraction
       run: |
-        echo "Get's the needed features, if need be."
+        echo "Get's the needed features. If need be, like data prep."
   
     #retrain
     - name: training_model
       run: |
-        echo "Model retrained."
+        echo "Attempting to train/retrain the model."
+        python3 model.py
+        echo "Model trained/retrained."
+    
+    - name: saving_model 
+      uses: actions/upload-artifact@v4
+      with:
+        name: trained_model
+        path: model.pkl
 
     #validate
     - name: model_validation #accuracy test
       run: |
-        echo "Model performance checked."
+        echo "Checking performance of the model."
+        
+        echo "Performance checked."
 
-    #deployment
+    #saving the model
+    - name: saving_model
+      run: |

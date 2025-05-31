@@ -3,13 +3,10 @@ needed for pylint. deploys flaskapp.
 """
 
 import pickle
-#import pandas as pd
-#import numpy as np
 from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-# Load the trained model
 model = pickle.load(open("model.pkl", "rb"))
 
 #with open("model.pkl", "wb") as file:
