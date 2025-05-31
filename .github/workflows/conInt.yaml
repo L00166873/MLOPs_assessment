@@ -6,6 +6,7 @@ jobs:
   ci_pipeline: #job_1
     name: continuous_integration_job
     runs-on: ubuntu-latest
+    
     steps:
     - name: setup
       uses: actions/checkout@v4

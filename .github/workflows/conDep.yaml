@@ -1,11 +1,15 @@
 name: continuous_deployment
-on: workflow_dispatch
-
+on: 
+  workflow_run: ["conInt"]
+  types:
+    - completed
+  
 
 jobs:
   cd_pipeline:
     name: continuous_deployment_job
     runs-on: ubuntu-latest
+
     steps:
     - name: setup
       uses: actions/checkout@v4
