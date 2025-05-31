@@ -26,7 +26,7 @@ jobs:
     - name: unit_testing
       run: |
         echo "Unit testing code."
-        pytest unit_test.py
+        pytest
         echo "Unit testing finished."
 
     - name: quality_testing
