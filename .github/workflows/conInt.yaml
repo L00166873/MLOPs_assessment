@@ -1,7 +1,7 @@
 name: continuous_integration
 on: 
-  push:
   workflow_dispatch:
+  push:
   
 
 jobs:
@@ -13,15 +13,25 @@ jobs:
     - name: setup
       uses: actions/checkout@v4
     
+    - name: python_setup
+      uses: actions/setup-python@v4
+      with: 
+        python-version: '3.9' 
+    
+    - name: installing_testing_libraries
+      run: |
+        pip install pytest pylint
+        pip install -r requirements.txt
+
     - name: unit_testing
       run: |
         echo "Unit testing code."
-    
+        pytest
+        echo "Unit testing finished."
+
     - name: quality_testing
       run: |
         echo "Quality testing code."
-    
-    - name: deployment # basically, starts off the 'deployment' workflow.
-      run: |
-        echo "Starts the 'Deployment workflow."
-       
+        pylint model.py
+        pylint flaskapp.py
+        echo "Quality testing finished."

@@ -1,0 +1,13 @@
+[MESSAGES CONTROL]
+disable=
+    C0114,
+    C0115,
+    C0116,
+    R1732
+
+
+#all of the C's above relate to docstrings.
+#i disabled them because it wants me to put them between the 'app.route()' and 'def ___()' lines
+#only C0116 should've worked, but i got all of them just in case
+
+#also added R1732, so that I don't get an issue with trying to load the model.

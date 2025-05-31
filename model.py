@@ -1,27 +1,32 @@
-import pandas as pd
-import numpy as np
+"""
+needed for pylint. trains the model.
+"""
+
 import pickle
+import pandas as pd
+#import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
+
+#just putting all of this into functions, since that i can only use pytest
+#through calling functions
+def get_data(csv_file):
+    return pd.read_csv(csv_file)
+
+def tt_split(dataframe):
+    x = dataframe[["Hours"]]
+    y = dataframe["Scores"]
+
+    return train_test_split(x, y, test_size=0.2, random_state=42)
 
 
-# Load dataset (Example: Insurance Charges Dataset. Remove first column index)
-df = pd.read_csv("student_scores.csv")
+df = get_data("dataset.csv")
+x_tr, x_te, y_tr, y_te = tt_split(df)
 
-# Features (X) and Target (y)
-X = df[["Hours"]]
-y = df["Scores"]
-
-# Split data into training and testing sets (80% train, 20% test)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Train Linear Regression Model
 model = LinearRegression()
-model.fit(X_train, y_train)
 
-# Save model to a .pkl file
+model.fit(x_tr, y_tr)
+
 with open("model.pkl", "wb") as file:
     pickle.dump(model, file)
-
-print("Model trained and saved as model.pkl!")
