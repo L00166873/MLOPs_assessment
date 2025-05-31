@@ -2,7 +2,7 @@ FROM python:3.9
 
 WORKDIR /opt/mlops_a
 
-COPY requirements_folder/flaskapp.txt .
+COPY requirement_folder/flaskapp.txt .
 COPY flaskapp.py .
 COPY model.pkl .
 

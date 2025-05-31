@@ -1,8 +1,9 @@
 name: continuous_training
 on:
   workflow_dispatch:
+  push:
   schedule:
-    - cron: '0 21 * * *'
+    - cron: '40 19 * * *'
     #- cron: '(minutes) (hours) () () (day)'
     #e.g 1: '30 6,18 * * 1,6' = runs the workflow at 6:30 and 18:30 on Monday and Saturday
 
@@ -25,7 +26,7 @@ jobs:
       
     - name: installing_libraries
       run: |
-        pip install -r requirements_folder/model.txt
+        pip install -r requirement_folder/model.txt
     
     #acquire/preprocess data
     - name: data_preparation 
@@ -43,20 +44,15 @@ jobs:
         echo "Attempting to train/retrain the model."
         python3 model.py
         echo "Model trained/retrained."
-    
-    - name: saving_model 
-      uses: actions/upload-artifact@v4
-      with:
-        name: trained_model
-        path: model.pkl
 
     #validate
     - name: model_validation #accuracy test
       run: |
         echo "Checking performance of the model."
-        
         echo "Performance checked."
 
-    #saving the model
-    - name: saving_model
-      run: |
+    - name: saving_model 
+      uses: actions/upload-artifact@v4
+      with:
+        name: trained_model
+        path: model.pkl

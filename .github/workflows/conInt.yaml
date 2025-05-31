@@ -21,8 +21,8 @@ jobs:
     - name: installing_libraries 
       run: |
         pip install pytest pylint
-        pip install -r requirements_folder/model.txt
-        pip install -r requirements_folder/flaskapp.txt
+        pip install -r requirement_folder/model.txt
+        pip install -r requirement_folder/flaskapp.txt
 
     - name: unit_testing
       run: |

@@ -25,10 +25,6 @@ jobs:
     - name: setup
       uses: actions/checkout@v4
     
-#    - name: staging_validation # more tests
-#      run: |
-#        echo "Staging validation code"
-    
     - name: building_docker_image # deploy to production(main)
       run: |
         echo "Starting the build."
