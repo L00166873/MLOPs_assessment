@@ -16,7 +16,7 @@ jobs:
     - name: python_setup
       uses: actions/setup-python@v4
       with: 
-        python_version: '3.9' 
+        python-version: '3.9' 
     
     - name: installing_testing_libraries
       run: |
