@@ -1,6 +1,27 @@
 name: continuous_integration
-on: workflow_dispatch
+on: 
+  push:
+  workflow_dispatch:
+  
 
 jobs:
-  job:
-    runs-on:
+  ci_pipeline: #job_1
+    name: continuous_integration_job
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: setup
+      uses: actions/checkout@v4
+    
+    - name: unit_testing
+      run: |
+        echo "Unit testing code."
+    
+    - name: quality_testing
+      run: |
+        echo "Quality testing code."
+    
+    - name: deployment # basically, starts off the 'deployment' workflow.
+      run: |
+        echo "Starts the 'Deployment workflow."
+       

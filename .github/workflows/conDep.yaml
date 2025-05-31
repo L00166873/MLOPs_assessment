@@ -1,0 +1,40 @@
+name: continuous_deployment
+on: 
+  push:
+  workflow_dispatch:
+
+  # needs to use workflow name within the file
+  # not the name of the file
+  workflow_run: 
+    workflows: 
+      - continuous_integration 
+      - continuous_training
+    types: 
+      - completed
+
+  
+
+jobs:
+  cd_pipeline:
+    name: continuous_deployment_job
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: setup
+      uses: actions/checkout@v4
+    
+    - name: verification
+      run: |
+        echo "${{ github.event.workflow_run.name }} with conclusion ${{ github.event.workflow_run.conclusion }}"
+    
+    - name: staging_validation # more tests
+      run: |
+        echo "Staging validation code"
+    
+    - name: deployment # deploy to production(main)
+      run: |
+        echo "Deployed."
+
+    - name: # start monitoring
+      run: |
+        echo "Starts off the monitoring workflow."

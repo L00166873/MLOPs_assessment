@@ -1,0 +1,17 @@
+name: continuous_monitoring
+on:
+  push:
+  workflow_dispatch:
+
+
+jobs:
+  cm_pipeline:
+    name: continuous_monitoring_job
+    runs-on: ubuntu-latest
+    steps:
+    - name: setup
+      uses: actions/checkout@v4
+    
+    - name: monitoring_startup
+      run: |
+        echo "Monitoring startup."
