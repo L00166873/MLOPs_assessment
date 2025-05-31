@@ -4,8 +4,10 @@ needed for pylint. trains the model.
 
 import pickle
 import pandas as pd
+#import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
+#from sklearn.preprocessing import StandardScaler
 
 #just putting all of this into functions, since that i can only use pytest
 #through calling functions
