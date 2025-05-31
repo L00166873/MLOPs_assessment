@@ -8,7 +8,7 @@ on:
       - continuous_training
     types: 
       - completed
-      
+
   workflow_dispatch:
   
 
@@ -20,6 +20,10 @@ jobs:
     steps:
     - name: setup
       uses: actions/checkout@v4
+    
+    - name: verification
+      run: |
+        echo "${{ github.event.workflow_run.name }} with conclusion ${{ github.event.workflow_run.conclusion }}"
     
     - name: staging_validation # more tests
       run: |
