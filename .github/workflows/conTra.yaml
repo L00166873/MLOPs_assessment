@@ -52,7 +52,7 @@ jobs:
         echo "Performance checked."
 
     - name: saving_model 
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: trained_model
         path: model.pkl
