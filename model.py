@@ -30,4 +30,3 @@ model.fit(x_tr, y_tr)
 
 with open("model.pkl", "wb") as file:
     pickle.dump(model, file)
-
