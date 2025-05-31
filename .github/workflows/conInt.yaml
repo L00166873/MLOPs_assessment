@@ -35,8 +35,3 @@ jobs:
         pylint model.py
         pylint flaskapp.py
         echo "Quality testing finished."
-
-    - name: deployment # basically, starts off the 'deployment' workflow.
-      run: |
-        echo "Starts the 'Deployment' workflow."
-       
