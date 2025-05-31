@@ -1,7 +1,11 @@
 name: continuous_monitoring
 on:
-  push:
   workflow_dispatch:
+  workflow_run: 
+    workflows: 
+      - continuous_deployment
+    types: 
+      - success
 
 
 jobs:
@@ -15,3 +19,7 @@ jobs:
     - name: monitoring_startup
       run: |
         echo "Monitoring startup."
+    
+    - name: retrain
+      run: |
+        echo "Runs the retraining code, if neccessary"
