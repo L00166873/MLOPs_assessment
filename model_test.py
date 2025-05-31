@@ -9,5 +9,5 @@ def test_get_data():
 
 def test_tt_split():
     x_tr, x_te, y_tr, y_te = tt_split(get_data("dataset.csv"))
-    assert x_tr.shape == y_tr.shape
-    assert x_te.shape == y_te.shape
+    assert x_tr.shape[0] == y_tr.shape[0]
+    assert x_te.shape[0] == y_te.shape[0]
