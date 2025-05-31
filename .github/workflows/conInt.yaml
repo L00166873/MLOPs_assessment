@@ -1,24 +1,24 @@
 name: continuous_integration
 on: 
-  push:
-
+  push
 
 jobs:
   ci_pipeline: #job_1
-    name:
+    name: continuous_integration_job
     runs-on: ubuntu-latest
     steps:
-    - name: checkoutsetup
+    - name: setup
       uses: actions/checkout@v4
     
-  - name: unit_testing
-    runs-on: python
-    run: |
-      echo "Runs unit tests."
-  
-  testing_2: #job_3
-  - name: quality_testing
-    runs-on: python
-    run: |
-      echo "Runs quality tests."
-
+    - name: unit_testing
+      run: |
+        echo "Unit testing code."
+    
+    - name: quality_testing
+      run: |
+        echo "Quality testing code."
+    
+    - name: deployment # basically, starts off the 'deployment' workflow.
+      run: |
+        echo "Starts the 'Deployment workflow."
+       

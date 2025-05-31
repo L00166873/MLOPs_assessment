@@ -5,26 +5,36 @@ on:
     #cron: '(minutes) (hours) () () (day)'
     #e.g 1: '30 6,18 * * 1,6' = runs the workflow at 6:30 and 18:30 on Monday and Saturday
 
+#also, make it so it's trained based on trigger from other workflows
+
 
 
 jobs:
-  data_prep: #acquiring and preprocessing data
+  ct_pipeline:
+    name: continuous_training_job
     runs-on: ubuntu-latest
-  
-  #feature extract
-  
-  #retrain
-  retraining:
-    name:
-    runs-on: ubuntu-latest
-    uses: actions/checkout@v4
     steps:
-    - name: test
-      runs: |
-        echo "The model has been retriained."
+    - name: setup
+      uses: actions/checkout@v4
+    
+    #acquire/preprocess data
+    - name: data_preparation 
+      run: | 
+        echo "Get's data, and preprocesses it."
 
+    #feature extract
+    - name: feature_extraction
+      run: |
+        echo "Get's the needed features, if need be."
+  
+    #retrain
+    - name: training_model
+      run: |
+        echo "Model retrained."
 
-  #validate
-  validating:
-    uses:
-  #deployment
+    #validate
+    - name: model_validation #accuracy test
+      run: |
+        echo "Model performance checked."
+
+    #deployment

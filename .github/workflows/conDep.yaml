@@ -1,3 +1,23 @@
 name: continuous_deployment
 on: workflow_dispatch
 
+
+jobs:
+  cd_pipeline:
+    name: continuous_deployment_job
+    runs-on: ubuntu-latest
+    steps:
+    - name: setup
+      uses: actions/checkout@v4
+    
+    - name: staging_validation # more tests
+      run: |
+        echo "Staging validation code"
+    
+    - name: deployment # deploy to production(main)
+      run: |
+        echo "Deployed."
+
+    - name: # start monitoring
+      run: |
+        echo "Starts off the monitoring workflow."
