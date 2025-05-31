@@ -1,9 +1,13 @@
-import pandas as pd
-import numpy as np
+"""
+needed for pylint. trains the model.
+"""
+
 import pickle
+import pandas as pd
+#import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import StandardScaler
+#from sklearn.preprocessing import StandardScaler
 
 
 # Load dataset (Example: Insurance Charges Dataset. Remove first column index)
