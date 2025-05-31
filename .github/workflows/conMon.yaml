@@ -5,7 +5,7 @@ on:
     workflows: 
       - continuous_deployment
     types: 
-      - success
+      - completed
 
 
 jobs:
