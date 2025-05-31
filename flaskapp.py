@@ -10,10 +10,10 @@ from flask import Flask, request, render_template
 app = Flask(__name__)
 
 # Load the trained model
-#model = pickle.load(open("model.pkl", "rb"))
+model = pickle.load(open("model.pkl", "rb"))
 
-with open("model.pkl", "wb") as file:
-    model = pickle.load(file)
+#with open("model.pkl", "wb") as file:
+#    model = pickle.load(file)
 
 
 @app.route("/")
