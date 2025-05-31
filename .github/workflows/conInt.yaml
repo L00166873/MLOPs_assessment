@@ -20,17 +20,21 @@ jobs:
     
     - name: installing_testing_libraries
       run: |
-        pip install pytest
+        pip install pytest pylint
 
     - name: unit_testing
       run: |
         echo "Unit testing code."
         pytest unit_test.py
-    
+        echo "Unit testing finished."
+
     - name: quality_testing
       run: |
         echo "Quality testing code."
-    
+        pylint model.py
+        pylint flaskapp.py
+        echo "Quality testing finished."
+
     - name: deployment # basically, starts off the 'deployment' workflow.
       run: |
         echo "Starts the 'Deployment' workflow."
