@@ -43,6 +43,7 @@ jobs:
       run: |
         echo "Attempting to train/retrain the model."
         python3 model.py
+        ls -la
         echo "Model trained/retrained."
 
     #validate
