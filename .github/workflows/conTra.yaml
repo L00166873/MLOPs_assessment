@@ -1,5 +1,6 @@
 name: continuous_training
 on: 
+  workflow_dispatch:
   schedule:
     cron: '0 21 * * *'
     #cron: '(minutes) (hours) () () (day)'

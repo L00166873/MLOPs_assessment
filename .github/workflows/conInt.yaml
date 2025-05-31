@@ -1,5 +1,8 @@
 name: continuous_integration
-on: push
+on: 
+  push:
+  workflow_dispatch:
+  
 
 jobs:
   ci_pipeline: #job_1
