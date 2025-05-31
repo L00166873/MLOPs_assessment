@@ -4,5 +4,6 @@ disable=
     C0115,
     C0116
 
-[REPORTS]
-fail-under: 7.0
+#all of the C's above relate to docstrings.
+#i disabled them because it wants me to put them between the 'app.route()' and 'def ___()' lines
+#only C0116 should've worked, but i got all of them just in case
