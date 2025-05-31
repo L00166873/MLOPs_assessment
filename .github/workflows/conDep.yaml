@@ -1,5 +1,6 @@
 name: continuous_deployment
 on: 
+  push:
   workflow_dispatch:
 
   # needs to use workflow name within the file

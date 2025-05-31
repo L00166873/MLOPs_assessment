@@ -1,5 +1,6 @@
 name: continuous_monitoring
-on: 
+on:
+  push:
   workflow_dispatch:
 
 

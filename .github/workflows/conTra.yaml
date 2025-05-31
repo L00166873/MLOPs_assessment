@@ -1,5 +1,6 @@
 name: continuous_training
-on: 
+on:
+  push:
   workflow_dispatch:
   schedule:
     cron: '0 21 * * *'
