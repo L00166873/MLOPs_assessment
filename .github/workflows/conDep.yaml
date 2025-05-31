@@ -8,6 +8,8 @@ on:
       - continuous_training
     types: 
       - completed
+      
+  workflow_dispatch:
   
 
 jobs:
