@@ -29,10 +29,15 @@ jobs:
 #      run: |
 #        echo "Staging validation code"
     
-    - name: deployment # deploy to production(main)
+    - name: building_docker_image # deploy to production(main)
       run: |
-        echo "Deployed."
+        echo "Starting the build."
+        docker build . -t score_predictor
+        echo "Building finished."
 
-    - name: # start monitoring
+    - name: running_docker_image
       run: |
-        echo "Starts off the monitoring workflow."
+        echo "Attempting to deploy the image."
+        docker run score_predictor
+        docker ps
+        echo "Image deployed."
