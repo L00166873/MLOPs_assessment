@@ -25,8 +25,7 @@ jobs:
     - name: unit_testing
       run: |
         echo "Unit testing code."
-        pytest model.py
-        pytest flaskapp.py
+        pytest unit_test.py
     
     - name: quality_testing
       run: |
