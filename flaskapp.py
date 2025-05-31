@@ -17,6 +17,9 @@ with open("model.pkl", "wb") as file:
 
 
 @app.route("/")
+"""
+needed for pylint. deploys flaskapp.
+"""
 def home():
     return render_template("index.html")
 
