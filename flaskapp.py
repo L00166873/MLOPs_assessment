@@ -13,19 +13,20 @@ app = Flask(__name__)
 #model = pickle.load(open("model.pkl", "rb"))
 
 with open("model.pkl", "wb") as file:
-    model = file
+    model = pickle.load(file)
 
+
+@app.route("/")
 """
 needed for pylint. renders the first page.
 """
-@app.route("/")
 def home():
     return render_template("index.html")
 
+@app.route("/predict", methods=["POST"])
 """
 needed for pylint. prediction stuff.
 """
-@app.route("/predict", methods=["POST"])
 def predict():
     # Get form data
     hours = float(request.form["hours"])
