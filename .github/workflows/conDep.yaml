@@ -4,7 +4,7 @@ on:
   # not the name of the file
   workflow_run: 
     workflows: ["continuous_integration", "continuous_training"]
-    types: [completed]
+    types: [success]
   
 
 jobs:
