@@ -5,7 +5,7 @@ from model import get_data, tt_split
 #you'd put something to get a 'True' or a 'False'. the rest is self explanatory. 
 def test_get_data():
     df = get_data("dataset.csv")
-    assert df[['Hours']].shape == df['Scores'].shape
+    assert df[['Hours']].shape[0] == df['Scores'].shape[0]
 
 def test_tt_split():
     x_tr, x_te, y_tr, y_te = tt_split(get_data("dataset.csv"))
