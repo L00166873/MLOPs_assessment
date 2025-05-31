@@ -1,16 +1,18 @@
 name: continuous_deployment
 on: 
-  push:
   workflow_dispatch:
 
   # needs to use workflow name within the file
   # not the name of the file
+
+  #also, just found at that you need to merge the code with main to be able to run the 
+  #workflows properly in actions
   workflow_run: 
     workflows: 
       - continuous_integration 
       - continuous_training
     types: 
-      - completed
+      - success
 
   
 
