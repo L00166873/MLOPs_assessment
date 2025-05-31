@@ -19,7 +19,7 @@ on:
 jobs:
   cd_pipeline:
     name: continuous_deployment_job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: setup
