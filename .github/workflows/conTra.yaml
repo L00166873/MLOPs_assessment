@@ -1,0 +1,30 @@
+name: continuous_training
+on: 
+  schedule:
+    cron: '0 21 * * *'
+    #cron: '(minutes) (hours) () () (day)'
+    #e.g 1: '30 6,18 * * 1,6' = runs the workflow at 6:30 and 18:30 on Monday and Saturday
+
+
+
+jobs:
+  data_prep: #acquiring and preprocessing data
+    runs-on: ubuntu-latest
+  
+  #feature extract
+  
+  #retrain
+  retraining:
+    name:
+    runs-on: ubuntu-latest
+    uses: actions/checkout@v4
+    steps:
+    - name: test
+      runs: |
+        echo "The model has been retriained."
+
+
+  #validate
+  validating:
+    uses:
+  #deployment

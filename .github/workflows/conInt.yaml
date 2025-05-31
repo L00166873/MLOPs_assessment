@@ -1,6 +1,24 @@
 name: continuous_integration
-on: workflow_dispatch
+on: 
+  push:
+
 
 jobs:
-  job:
-    runs-on:
+  ci_pipeline: #job_1
+    name:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkoutsetup
+      uses: actions/checkout@v4
+    
+  - name: unit_testing
+    runs-on: python
+    run: |
+      echo "Runs unit tests."
+  
+  testing_2: #job_3
+  - name: quality_testing
+    runs-on: python
+    run: |
+      echo "Runs quality tests."
+
