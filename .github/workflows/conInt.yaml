@@ -21,6 +21,7 @@ jobs:
     - name: installing_testing_libraries
       run: |
         pip install pytest pylint
+        pip install -r requirements.txt
 
     - name: unit_testing
       run: |

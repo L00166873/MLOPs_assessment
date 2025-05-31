@@ -1,3 +1,7 @@
+"""
+needed for pylint. trains the model.
+"""
+
 import pandas as pd
 import numpy as np
 import pickle
@@ -25,3 +29,4 @@ with open("model.pkl", "wb") as file:
     pickle.dump(model, file)
 
 print("Model trained and saved as model.pkl!")
+
