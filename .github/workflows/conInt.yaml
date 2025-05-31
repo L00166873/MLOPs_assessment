@@ -18,10 +18,11 @@ jobs:
       with: 
         python-version: '3.9' 
     
-    - name: installing_testing_libraries
+    - name: installing_libraries 
       run: |
         pip install pytest pylint
-        pip install -r requirements.txt
+        pip install -r requirement_folder/model.txt
+        pip install -r requirement_folder/flaskapp.txt
 
     - name: unit_testing
       run: |
