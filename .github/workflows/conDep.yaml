@@ -1,6 +1,6 @@
 name: continuous_deployment
 on: 
-  workflow_run: ["conInt"]
+  workflow_run: ["conInt.yaml", "conTra.yaml"]
   types:
     - completed
   
