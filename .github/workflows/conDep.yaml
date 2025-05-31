@@ -2,7 +2,9 @@ name: continuous_deployment
 on: 
   # needs to use workflow name within the file
   # not the name of the file
-  workflow_run: ["continuous_integration", "continuous_training"]
+  workflow_run: 
+    - "continuous_integration"
+    - "continuous_training"
   types:
     - completed
   
