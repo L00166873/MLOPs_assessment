@@ -17,16 +17,10 @@ with open("model.pkl", "wb") as file:
 
 
 @app.route("/")
-"""
-needed for pylint. renders the first page.
-"""
 def home():
     return render_template("index.html")
 
 @app.route("/predict", methods=["POST"])
-"""
-needed for pylint. prediction stuff.
-"""
 def predict():
     # Get form data
     hours = float(request.form["hours"])
