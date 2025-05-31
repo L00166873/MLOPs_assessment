@@ -18,6 +18,10 @@ jobs:
       with: 
         python_version: '3.9' 
     
+    - name: installing_testing_libraries
+      run: |
+        pip install pytest
+
     - name: unit_testing
       run: |
         echo "Unit testing code."
