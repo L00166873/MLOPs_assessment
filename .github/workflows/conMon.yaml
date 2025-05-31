@@ -20,3 +20,6 @@ jobs:
       run: |
         echo "Monitoring startup."
     
+    - name: retrain
+      run: |
+        echo "Runs the retraining code, if neccessary"

@@ -1,9 +1,8 @@
 name: continuous_training
 on:
   workflow_dispatch:
-  push:
   schedule:
-    - cron: '40 19 * * *'
+    - cron: '0 21 * * *'
     #- cron: '(minutes) (hours) () () (day)'
     #e.g 1: '30 6,18 * * 1,6' = runs the workflow at 6:30 and 18:30 on Monday and Saturday
 
@@ -19,40 +18,24 @@ jobs:
     - name: setup
       uses: actions/checkout@v4
     
-    - name: python_setup
-      uses: actions/setup-python@v4
-      with: 
-        python-version: '3.9' 
-      
-    - name: installing_libraries
-      run: |
-        pip install -r requirement_folder/model.txt
-    
     #acquire/preprocess data
     - name: data_preparation 
       run: | 
-        echo "The step that automates data acquisition and preprocessing(would use the .py file(s) that do that, if/when needed)."
+        echo "Get's data, and preprocesses it."
 
     #feature extract
     - name: feature_extraction
       run: |
-        echo "Get's the needed features. If need be, like data prep."
+        echo "Get's the needed features, if need be."
   
     #retrain
     - name: training_model
       run: |
-        echo "Attempting to train/retrain the model."
-        python3 model.py
-        echo "Model trained/retrained."
+        echo "Model retrained."
 
     #validate
     - name: model_validation #accuracy test
       run: |
-        echo "Checking performance of the model."
-        echo "Performance checked."
+        echo "Model performance checked."
 
-    - name: saving_model 
-      uses: actions/upload-artifact@v4
-      with:
-        name: trained_model
-        path: model.pkl
+    #deployment
